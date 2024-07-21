@@ -8,7 +8,6 @@
 @out comparison_summary_table_IC_enforced_changed_count
 @out overall_outer_workflow
 @out overall_inner_workflow
-@out NYPL_dataset_D
 @out cleaned_NYPL_dataset_D'
 @out in_ZIP_workflow_model
 @out in_ZIP_operation_history
