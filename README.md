@@ -1,4 +1,4 @@
-# **CS513 **
+# **CS513**
 * **Team 208**
   * Brandon Short: bjshort2@illinois.edu
   * Ella Lingafelter: ellanl2@illinois.edu

@@ -1,0 +1,167 @@
+
+/* Start of top-level graph */
+digraph Workflow {
+rankdir=TB
+
+/* Title for graph */
+fontname=Helvetica; fontsize=18; labelloc=t
+label=NYPL_Data_Cleaning_Outer_Workflow
+
+/* Start of double cluster for drawing box around nodes in workflow */
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; penwidth=0
+
+/* Style for nodes representing non-parameter data channels in workflow */
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+
+/* Nodes for non-parameter data channels in workflow */
+comparison_summary_table
+comparison_summary_table_columns_changed_count
+comparison_summary_table_cells_per_column_changed_count
+comparison_summary_table_IC_enforced_changed_count
+overall_outer_workflow
+overall_inner_workflow
+"cleaned_NYPL_dataset_D'"
+in_ZIP_workflow_model
+in_ZIP_operation_history
+queries
+url_box_folder_link [shape=record rankdir=LR label="{<f0> url_box_folder_link |<f1> https\://placeholder}"];
+NYPL_dataset_D
+NYPL_use_case_U1
+NYPL_dataset_D_required_attributes
+quality_problems_P
+functional_dependencies
+"NYPL_dataset_D'_metadata"
+NYPL_dataset_D_original_metadata
+OpenRefine_recipe
+other_scripts_provenance_files
+
+/* Style for nodes representing parameter channels in workflow */
+node[shape=box style="rounded,filled" fillcolor="#FCFCFC" peripheries=1 fontname=Helvetica]
+
+/* Nodes representing parameter channels in workflow */
+
+/* Style for edges representing programs connecting data channels in workflow */
+edge[fontname=Helvetica]
+
+/* Edges representing programs connecting data channels in workflow */
+NYPL_dataset_D -> NYPL_dataset_D_required_attributes [label=""]
+NYPL_use_case_U1 -> NYPL_dataset_D_required_attributes [label=""]
+NYPL_dataset_D -> NYPL_dataset_D_original_metadata [label=""]
+NYPL_use_case_U1 -> NYPL_dataset_D_original_metadata [label=""]
+NYPL_dataset_D -> quality_problems_P [label=""]
+NYPL_dataset_D_required_attributes -> quality_problems_P [label=""]
+NYPL_dataset_D -> functional_dependencies [label=""]
+NYPL_dataset_D_required_attributes -> functional_dependencies [label=""]
+NYPL_dataset_D -> "cleaned_NYPL_dataset_D'" [label=""]
+NYPL_dataset_D_required_attributes -> "cleaned_NYPL_dataset_D'" [label=""]
+quality_problems_P -> "cleaned_NYPL_dataset_D'" [label=""]
+functional_dependencies -> "cleaned_NYPL_dataset_D'" [label=""]
+NYPL_dataset_D -> "NYPL_dataset_D'_metadata" [label=""]
+NYPL_dataset_D_required_attributes -> "NYPL_dataset_D'_metadata" [label=""]
+quality_problems_P -> "NYPL_dataset_D'_metadata" [label=""]
+functional_dependencies -> "NYPL_dataset_D'_metadata" [label=""]
+NYPL_dataset_D -> OpenRefine_recipe [label=""]
+NYPL_dataset_D_required_attributes -> OpenRefine_recipe [label=""]
+quality_problems_P -> OpenRefine_recipe [label=""]
+functional_dependencies -> OpenRefine_recipe [label=""]
+NYPL_dataset_D -> other_scripts_provenance_files [label=""]
+NYPL_dataset_D_required_attributes -> other_scripts_provenance_files [label=""]
+quality_problems_P -> other_scripts_provenance_files [label=""]
+functional_dependencies -> other_scripts_provenance_files [label=""]
+"cleaned_NYPL_dataset_D'" -> comparison_summary_table [label=""]
+"NYPL_dataset_D'_metadata" -> comparison_summary_table [label=""]
+NYPL_dataset_D -> comparison_summary_table [label=""]
+NYPL_dataset_D_original_metadata -> comparison_summary_table [label=""]
+"cleaned_NYPL_dataset_D'" -> comparison_summary_table_columns_changed_count [label=""]
+"NYPL_dataset_D'_metadata" -> comparison_summary_table_columns_changed_count [label=""]
+NYPL_dataset_D -> comparison_summary_table_columns_changed_count [label=""]
+NYPL_dataset_D_original_metadata -> comparison_summary_table_columns_changed_count [label=""]
+"cleaned_NYPL_dataset_D'" -> comparison_summary_table_cells_per_column_changed_count [label=""]
+"NYPL_dataset_D'_metadata" -> comparison_summary_table_cells_per_column_changed_count [label=""]
+NYPL_dataset_D -> comparison_summary_table_cells_per_column_changed_count [label=""]
+NYPL_dataset_D_original_metadata -> comparison_summary_table_cells_per_column_changed_count [label=""]
+"cleaned_NYPL_dataset_D'" -> comparison_summary_table_IC_enforced_changed_count [label=""]
+"NYPL_dataset_D'_metadata" -> comparison_summary_table_IC_enforced_changed_count [label=""]
+NYPL_dataset_D -> comparison_summary_table_IC_enforced_changed_count [label=""]
+NYPL_dataset_D_original_metadata -> comparison_summary_table_IC_enforced_changed_count [label=""]
+NYPL_dataset_D_original_metadata -> overall_outer_workflow [label=""]
+"cleaned_NYPL_dataset_D'" -> overall_outer_workflow [label=""]
+NYPL_dataset_D -> overall_outer_workflow [label=""]
+NYPL_dataset_D_original_metadata -> overall_inner_workflow [label=""]
+"cleaned_NYPL_dataset_D'" -> overall_inner_workflow [label=""]
+NYPL_dataset_D -> overall_inner_workflow [label=""]
+overall_outer_workflow -> in_ZIP_workflow_model [label=""]
+overall_inner_workflow -> in_ZIP_workflow_model [label=""]
+OpenRefine_recipe -> in_ZIP_workflow_model [label=""]
+other_scripts_provenance_files -> in_ZIP_workflow_model [label=""]
+NYPL_use_case_U1 -> in_ZIP_workflow_model [label=""]
+NYPL_dataset_D -> in_ZIP_workflow_model [label=""]
+"cleaned_NYPL_dataset_D'" -> in_ZIP_workflow_model [label=""]
+overall_outer_workflow -> in_ZIP_operation_history [label=""]
+overall_inner_workflow -> in_ZIP_operation_history [label=""]
+OpenRefine_recipe -> in_ZIP_operation_history [label=""]
+other_scripts_provenance_files -> in_ZIP_operation_history [label=""]
+NYPL_use_case_U1 -> in_ZIP_operation_history [label=""]
+NYPL_dataset_D -> in_ZIP_operation_history [label=""]
+"cleaned_NYPL_dataset_D'" -> in_ZIP_operation_history [label=""]
+overall_outer_workflow -> queries [label=""]
+overall_inner_workflow -> queries [label=""]
+OpenRefine_recipe -> queries [label=""]
+other_scripts_provenance_files -> queries [label=""]
+NYPL_use_case_U1 -> queries [label=""]
+NYPL_dataset_D -> queries [label=""]
+"cleaned_NYPL_dataset_D'" -> queries [label=""]
+overall_outer_workflow -> url_box_folder_link [label=""]
+overall_inner_workflow -> url_box_folder_link [label=""]
+OpenRefine_recipe -> url_box_folder_link [label=""]
+other_scripts_provenance_files -> url_box_folder_link [label=""]
+NYPL_use_case_U1 -> url_box_folder_link [label=""]
+NYPL_dataset_D -> url_box_folder_link [label=""]
+"cleaned_NYPL_dataset_D'" -> url_box_folder_link [label=""]
+
+/* End of double cluster for drawing box around nodes in workflow */
+}}
+
+/* Style for nodes representing workflow input ports */
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+
+/* Nodes representing workflow input ports */
+NYPL_dataset_D_input_port [label=""]
+NYPL_use_case_U1_input_port [label=""]
+
+/* Style for nodes representing workflow output ports */
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+
+/* Nodes representing workflow output ports */
+comparison_summary_table_output_port [label=""]
+comparison_summary_table_columns_changed_count_output_port [label=""]
+comparison_summary_table_cells_per_column_changed_count_output_port [label=""]
+comparison_summary_table_IC_enforced_changed_count_output_port [label=""]
+overall_outer_workflow_output_port [label=""]
+overall_inner_workflow_output_port [label=""]
+"cleaned_NYPL_dataset_D'_output_port" [label=""]
+in_ZIP_workflow_model_output_port [label=""]
+in_ZIP_operation_history_output_port [label=""]
+queries_output_port [label=""]
+url_box_folder_link_output_port [label=""]
+
+/* Edges from input ports to channels */
+NYPL_dataset_D_input_port -> NYPL_dataset_D
+NYPL_use_case_U1_input_port -> NYPL_use_case_U1
+
+/* Edges from channels to output ports */
+comparison_summary_table -> comparison_summary_table_output_port
+comparison_summary_table_columns_changed_count -> comparison_summary_table_columns_changed_count_output_port
+comparison_summary_table_cells_per_column_changed_count -> comparison_summary_table_cells_per_column_changed_count_output_port
+comparison_summary_table_IC_enforced_changed_count -> comparison_summary_table_IC_enforced_changed_count_output_port
+overall_outer_workflow -> overall_outer_workflow_output_port
+overall_inner_workflow -> overall_inner_workflow_output_port
+"cleaned_NYPL_dataset_D'" -> "cleaned_NYPL_dataset_D'_output_port"
+in_ZIP_workflow_model -> in_ZIP_workflow_model_output_port
+in_ZIP_operation_history -> in_ZIP_operation_history_output_port
+queries -> queries_output_port
+url_box_folder_link -> url_box_folder_link_output_port
+
+/* End of top-level graph */
+}
