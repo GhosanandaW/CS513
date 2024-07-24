@@ -26,6 +26,12 @@ DishSchema2(id2:, name2:, description2:, menus_appeared2:, times_appeared2:, fir
 totalRowCount(count? +=1) distinct:- 
     Dish();
 
+#check total row, profiling and sanity check
+#Total row 423397
+#Completed sanity check
+totalRowCountDishSchema2(count? +=1) distinct:- 
+    DishSchema2();
+
 ##############################################################################################
 #PK check
 
