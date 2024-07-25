@@ -1,0 +1,128 @@
+[
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "dish_id",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column dish_id using expression value.toNumber()"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "dish_id",
+          "expression": "isBlank(value)",
+          "columnName": "dish_id",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "price",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column price using expression value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "high_price",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column high_price using expression value.toNumber()"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "price",
+    "expression": "grel:max(if(isNull(value),-1,value),if(isNull(cells['high_price'].value),-1,cells['high_price'].value))",
+    "onError": "set-to-blank",
+    "newColumnName": "full_price",
+    "columnInsertIndex": 3,
+    "description": "Create column full_price at index 3 based on column price using expression grel:max(if(isNull(value),-1,value),if(isNull(cells['high_price'].value),-1,cells['high_price'].value))"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "full_price",
+    "index": 5,
+    "description": "Move column full_price to position 5"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "full_price",
+          "expression": "value",
+          "columnName": "full_price",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": -1,
+                "l": "-1.0"
+              }
+            },
+            {
+              "v": {
+                "v": -1,
+                "l": "-1.0"
+              }
+            },
+            {
+              "v": {
+                "v": 0,
+                "l": "0.0"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  }
+]
