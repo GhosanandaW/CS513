@@ -401,5 +401,137 @@
     "repeat": false,
     "repeatCount": 10,
     "description": "Text transform on cells in column name using expression value.replace(/[\\p{Zs}\\s]+/,' ')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "range",
+          "name": "name",
+          "expression": "grel:facetCount(value.find(/^([\\W_]).*\\1$/), \"grel:value.find(/^([\\\\W_]).*\\\\1$/)\", \"name\")",
+          "columnName": "name",
+          "from": 1,
+          "to": 1.9999999999999998,
+          "selectNumeric": true,
+          "selectNonNumeric": true,
+          "selectBlank": true,
+          "selectError": true
+        },
+        {
+          "type": "list",
+          "name": "Flagged Rows",
+          "expression": "row.flagged",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "name",
+    "expression": "grel:value.replace(/^[^A-Za-z0-9_\\s]|[^A-Za-z0-9_\\s]$/,'')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column name using expression grel:value.replace(/^[^A-Za-z0-9_\\s]|[^A-Za-z0-9_\\s]$/,'')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "name",
+          "columnName": "name",
+          "query": "([^A-Za-z0-9_\\s])\\s\\1",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "name",
+    "expression": "grel:value.replace(/([^A-Za-z0-9_\\s])\\s\\1/,'')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column name using expression grel:value.replace(/([^A-Za-z0-9_\\s])\\s\\1/,'')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "name",
+          "columnName": "name",
+          "query": "^[^A-Za-z0-9_\\s]",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "name",
+    "expression": "grel:value.replace(/^[*]/,'')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column name using expression grel:value.replace(/^[*]/,'')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "name",
+          "columnName": "name",
+          "query": "([^A-Za-z0-9_\\s])\\1([^A-Za-z0-9_\\s])*$",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "name",
+    "expression": "grel:value.replace(/([^A-Za-z0-9_\\s])\\1([^A-Za-z0-9_\\s])*$/,'')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column name using expression grel:value.replace(/([^A-Za-z0-9_\\s])\\1([^A-Za-z0-9_\\s])*$/,'')"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "name",
+          "columnName": "name",
+          "query": "^\\d+$",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
   }
 ]

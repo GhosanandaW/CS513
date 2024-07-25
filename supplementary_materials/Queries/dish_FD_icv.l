@@ -129,13 +129,33 @@ IcvlastAppearedMoreThanCurrentYearCheck(id:, name:, last_appeared:) :-
 CountIcvlastAppearedMoreThanCurrentYearCheck(count? +=1) distinct:- IcvlastAppearedMoreThanCurrentYearCheck();
 
 
+# check for dish that violates lowest>0
+# issue detected with 222566 violations
+IcvLowestPriceEmptyCheck(id:, name:, lowest_price:, highest_price:) :-
+    DishSchema(id:, name:, description:, menus_appeared:, times_appeared:, first_appeared:, last_appeared:, lowest_price:, highest_price:),
+    lowest_price<=0;
+CountIcvLowestPriceEmptyCheck(count? +=1) distinct:- IcvLowestPriceEmptyCheck();
+
 # check for dish that violates highest>0
 # issue detected with 218014 violations
-IcvPriceAllEmptyCheck(id:, name:, lowest_price:, highest_price:) :-
+IcvHighestPriceEmptyCheck(id:, name:, lowest_price:, highest_price:) :-
     DishSchema(id:, name:, description:, menus_appeared:, times_appeared:, first_appeared:, last_appeared:, lowest_price:, highest_price:),
-    lowest_price==0,
-    highest_price==0;
-CountIcvPriceAllEmptyCheck(count? +=1) distinct:- IcvPriceAllEmptyCheck();
+    highest_price<=0;
+CountIcvHighestPriceEmptyCheck(count? +=1) distinct:- IcvHighestPriceEmptyCheck();
+
+# check for dish that violates lowest!=null
+# issue detected with NO violations
+IcvLowestPriceNullCheck(id:, name:, lowest_price:, highest_price:) :-
+    DishSchema(id:, name:, description:, menus_appeared:, times_appeared:, first_appeared:, last_appeared:, lowest_price:, highest_price:),
+    lowest_price==null;
+CountIcvLowestPriceNullCheck(count? +=1) distinct:- IcvLowestPriceNullCheck();
+
+# check for dish that violates highest!=null
+# issue detected with None violations
+IcvHighestPriceNullCheck(id:, name:, lowest_price:, highest_price:) :-
+    DishSchema(id:, name:, description:, menus_appeared:, times_appeared:, first_appeared:, last_appeared:, lowest_price:, highest_price:),
+    highest_price==null;
+CountIcvHighestPriceNullCheck(count? +=1) distinct:- IcvHighestPriceNullCheck();
 
 # check for dish that violates lowest_price<=highest_price
 # issue NOT DETECTED (lowest price can be highest price too if there is only 1 price forever)
