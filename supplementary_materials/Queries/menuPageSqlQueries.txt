@@ -1,0 +1,15 @@
+menuPageSqlQueries
+
+SELECT * FROM uncleaned_menuPage WHERE id ISNULL;
+SELECT * FROM uncleaned_menuPage GROUP BY id HAVING count(id)>1;
+select * from uncleaned_menuPage where id <0;
+SELECT * FROM uncleaned_menuPage WHERE menu_page_id ISNULL;
+select * from uncleaned_menuPage where menu_id <0;
+SELECT * FROM uncleaned_menuPage WHERE full_height ISNULL;
+select * from uncleaned_menuPage where full_height <0;
+SELECT * FROM uncleaned_menuPage WHERE full_width ISNULL;
+select * from uncleaned_menuPage where full_width <0;
+
+SELECT * FROM cleaned_menuPage WHERE full_height ISNULL;
+SELECT * FROM cleaned_menuPage WHERE full_width ISNULL;
+
