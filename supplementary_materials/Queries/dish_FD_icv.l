@@ -3,7 +3,7 @@
 
 @Ground(Dish);
 Dish(..r) :- 
-    `('https://github.com/GhosanandaW/CS513/blob/main/supplementary_materials/datasets/Dish.csv?raw=true')`(..r);
+    `('https://github.com/GhosanandaW/CS513/blob/main/supplementary_materials/datasets/original%20datasets/Dish.csv?raw=true')`(..r);
 
 DishSchema(id:, name:, description:, menus_appeared:, times_appeared:, first_appeared:, last_appeared:, lowest_price:, highest_price:) :- 
   Dish(id:, name:, description:, menus_appeared:, times_appeared:, first_appeared:, last_appeared:, lowest_price:, highest_price:);
@@ -79,6 +79,8 @@ IcvDifferentIDSameTuple(id:, name:, description:, menus_appeared:, times_appeare
     lowest_price   = lowest_price2,
     highest_price  = highest_price2;
 
+CountIcvDifferentIDSameTuple(count? +=1) distinct:- IcvDifferentIDSameTuple();
+IcvDifferentIDSameTupleID(id:) distinct:- IcvDifferentIDSameTuple(id:);
 ##############################################################################################
 #Conditional FD check
 
