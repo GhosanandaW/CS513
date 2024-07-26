@@ -2,13 +2,13 @@ menuItemSqlQueries
 
 SELECT * FROM unclean_menuItem WHERE id ISNULL;
 SELECT * FROM unclean_menuItem GROUP BY id HAVING count(id)>1;
-select * from unclean_menuItem where id <0;
+SELECT * FROM unclean_menuItem WHERE id <0;
 SELECT * FROM unclean_menuItem WHERE menu_page_id ISNULL;
-select * from unclean_menuItem where menu_page_id <0;
-select * from unclean_menuItem where price <=0;
-select * from unclean_menuItem where high_price <=0;
+SELECT * FROM unclean_menuItem WHERE menu_page_id <0;
+SELECT * FROM unclean_menuItem WHERE price <=0;
+SELECT * FROM unclean_menuItem WHERE high_price <=0;
 SELECT * FROM unclean_menuItem WHERE dish_id ISNULL;
-select * from unclean_menuItem where dish_id <0;
+SELECT * FROM unclean_menuItem WHERE dish_id <0;
 
 SELECT * FROM clean_menuItem WHERE dish_id ISNULL;
 SELECT * FROM clean_menuItem WHERE full_price <0;
