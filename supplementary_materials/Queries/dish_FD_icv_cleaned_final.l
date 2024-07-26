@@ -130,18 +130,32 @@ IcvlastAppearedMoreThanCurrentYearCheck(id:, name:, last_appeared:) :-
 CountIcvlastAppearedMoreThanCurrentYearCheck(count? +=1) distinct:- IcvlastAppearedMoreThanCurrentYearCheck();
 
 
+# check for dish that violates last_appeared<0
+# issue detected with 179 violations
+IcvFirstAppearedNegativeYearCheck(id:, name:, last_appeared:) :-
+    DishSchema(id:, name:, menus_appeared:, times_appeared:, first_appeared:, last_appeared:, lowest_price:, highest_price:),
+    first_appeared<0;
+CountIcvFirstAppearedNegativeYearCheck(count? +=1) distinct:- IcvFirstAppearedNegativeYearCheck();
+
+# check for dish that violates last_appeared<0
+# issue detected with 179 violations
+IcvlastAppearedNegativeYearCheck(id:, name:, last_appeared:) :-
+    DishSchema(id:, name:, menus_appeared:, times_appeared:, first_appeared:, last_appeared:, lowest_price:, highest_price:),
+    last_appeared<0;
+CountIcvlastAppearedNegativeYearCheck(count? +=1) distinct:- IcvlastAppearedNegativeYearCheck();
+
 # check for dish that violates lowest>0
 # issue detected with 222566 violations
 IcvLowestPriceEmptyCheck(id:, name:, lowest_price:, highest_price:) :-
     DishSchema(id:, name:, menus_appeared:, times_appeared:, first_appeared:, last_appeared:, lowest_price:, highest_price:),
-    lowest_price<=0;
+    lowest_price<0;
 CountIcvLowestPriceEmptyCheck(count? +=1) distinct:- IcvLowestPriceEmptyCheck();
 
 # check for dish that violates highest>0
 # issue detected with 218014 violations
 IcvHighestPriceEmptyCheck(id:, name:, lowest_price:, highest_price:) :-
     DishSchema(id:, name:, menus_appeared:, times_appeared:, first_appeared:, last_appeared:, lowest_price:, highest_price:),
-    highest_price<=0;
+    highest_price<0;
 CountIcvHighestPriceEmptyCheck(count? +=1) distinct:- IcvHighestPriceEmptyCheck();
 
 # check for dish that violates lowest!=null
@@ -176,5 +190,5 @@ CountIcvLowestPriceCheck(count? +=1) distinct:- IcvLowestPriceCheck();
 # issue detected with 222566 violations
 IcvHighestPriceCheck(id:, name:, highest_price:) :-
     DishSchema(id:, name:, menus_appeared:, times_appeared:, first_appeared:, last_appeared:, lowest_price:, highest_price:),
-    lowest_price<=0;
+    highest_price<=0;
 CountIcvHighestPriceCheck(count? +=1) distinct:- IcvHighestPriceCheck();

@@ -12,7 +12,9 @@
 @out in_ZIP_workflow_model
 @out in_ZIP_operation_history
 @out queries @desc what questions are trying to be answered
-@out url_box_folder_link @uri https://placeholder
+@out url_box_folder_link @uri https://uofi.box.com/s/h5whaje4lw04sushubzo1sq4x4gwf0vj
+@out github_link @uri https://github.com/GhosanandaW/CS513
+
 
 
 @begin describe_NYPL_dataset_D_S1 @desc Description of dataset D and matching use case U1 (Extract)
@@ -80,7 +82,8 @@
 
 @in NYPL_dataset_D
 @in cleaned_NYPL_dataset_D'
-@out url_box_folder_link @uri https://placeholder
+@out url_box_folder_link @uri https://uofi.box.com/s/h5whaje4lw04sushubzo1sq4x4gwf0vj
+@out github_link @uri https://github.com/GhosanandaW/CS513
 @end supplementary_materials
 
 
