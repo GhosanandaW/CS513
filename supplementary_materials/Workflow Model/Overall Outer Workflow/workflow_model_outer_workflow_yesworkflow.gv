@@ -36,7 +36,8 @@ overall_inner_workflow
 in_ZIP_workflow_model
 in_ZIP_operation_history
 queries
-url_box_folder_link [shape=record rankdir=LR label="{<f0> url_box_folder_link |<f1> https\://placeholder}"];
+url_box_folder_link [shape=record rankdir=LR label="{<f0> url_box_folder_link |<f1> https\://uofi.box.com/s/h5whaje4lw04sushubzo1sq4x4gwf0vj}"];
+github_link [shape=record rankdir=LR label="{<f0> github_link |<f1> https\://github.com/GhosanandaW/CS513}"];
 NYPL_dataset_D
 NYPL_use_case_U1
 NYPL_dataset_D_required_attributes
@@ -86,6 +87,7 @@ supplementary_materials -> in_ZIP_workflow_model
 supplementary_materials -> in_ZIP_operation_history
 supplementary_materials -> queries
 supplementary_materials -> url_box_folder_link
+supplementary_materials -> github_link
 overall_outer_workflow -> supplementary_materials
 overall_inner_workflow -> supplementary_materials
 OpenRefine_recipe -> supplementary_materials
@@ -119,6 +121,7 @@ in_ZIP_workflow_model_output_port [label=""]
 in_ZIP_operation_history_output_port [label=""]
 queries_output_port [label=""]
 url_box_folder_link_output_port [label=""]
+github_link_output_port [label=""]
 
 /* Edges from input ports to channels */
 NYPL_dataset_D_input_port -> NYPL_dataset_D
@@ -136,6 +139,7 @@ in_ZIP_workflow_model -> in_ZIP_workflow_model_output_port
 in_ZIP_operation_history -> in_ZIP_operation_history_output_port
 queries -> queries_output_port
 url_box_folder_link -> url_box_folder_link_output_port
+github_link -> github_link_output_port
 
 /* End of top-level graph */
 }
