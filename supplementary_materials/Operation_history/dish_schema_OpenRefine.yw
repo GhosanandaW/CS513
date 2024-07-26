@@ -1,0 +1,457 @@
+#@begin Parallel_OR #@desc Parallel OpenRefine Workflow
+#@param expression:grel:value.replace(/\\[C\\]/,'C')
+#@param expression:grel:value.replace(/^\\-/,'')
+#@param expression:grel:value.replace(/([^A-Za-z0-9_\\s])\\1([^A-Za-z0-9_\\s])*$/,'')
+#@param expression:grel:value.replace(/^\\(\\d{1,3}\\)/,'')
+#@param expression:grel:value.replace(/\\(\\w{1}\\)$/,'')
+#@param expression:grel:value.replace(/^\\#\\d+/,'')
+#@param expression:grel:value.replace(/\\[\\d{1,3}\\]$/,'')
+#@param expression:grel:value.replace(/\\"/,'')
+#@param expression:grel:value.replace(/^\\[\\d{1,3}\\]/,'')
+#@param expression:grel:value.replace(/^\\(\\w{1}\\)/,'')
+#@param expression:value
+#@param expression:grel:value.replace(/([^A-Za-z0-9_\\s])\\s\\1/,'')
+#@param expression:value.replace(/[\\p{Zs}\\s]+/,'_')
+#@param expression:grel:value.replace(/\\(\\d{1,3}\\)$/,'')
+#@param expression:value.toString()
+#@param expression:grel:value.replace(/^\\*/,'')
+#@param expression:value.toNumber()
+#@param mode:row-based
+#@param expression:grel:value.replace(/^\\./,'')
+#@param expression:value.trim()
+#@param expression:grel:value.replace(/^[*]/,'')
+#@param expression:grel:value.replace(/^[^A-Za-z0-9_\\s]|[^A-Za-z0-9_\\s]$/,'')
+#@in times_appeared_1
+#@in name_5
+#@in lowest_price_1
+#@in name_12
+#@in name_32
+#@in name_48
+#@in highest_price_1
+#@in name_10
+#@in name_44
+#@in name_42
+#@in name_23
+#@in name_8
+#@in menus_appeared
+#@in name_33
+#@in name_36
+#@in name_34
+#@in name_40
+#@in name_3
+#@in name_43
+#@in name_46
+#@in name_4
+#@in name_35
+#@in last_appeared
+#@in name_27
+#@in name_26
+#@in name_19
+#@in id_1
+#@in times_appeared
+#@in name_6
+#@in name_30
+#@in lowest_price
+#@in name_22
+#@in name_39
+#@in name_7
+#@in name_50
+#@in name_1
+#@in name_47
+#@in name_20
+#@in last_appeared_1
+#@in name_31
+#@in name_38
+#@in name_21
+#@in name_45
+#@in name_2
+#@in highest_price
+#@in lowest_price_3
+#@in name_16
+#@in name_18
+#@in name_11
+#@in name_41
+#@in name_17
+#@in name_51
+#@in lowest_price_2
+#@in name_14
+#@in name
+#@in name_37
+#@in name_9
+#@in name_24
+#@in name_13
+#@in name_29
+#@in description
+#@in first_appeared
+#@in first_appeared_1
+#@in first_appeared_2
+#@in name_25
+#@in menus_appeared_1
+#@in name_28
+#@in name_15
+#@in name_49
+#@in id
+#@out CleanData
+#@begin core/column-removal0 #@desc Remove column description
+#@in description
+#@out remove-description
+#@end core/column-removal0
+#@begin core/text-transform1 #@desc Text transform on cells in column id using expression value.toNumber()
+#@param expression:value.toNumber()
+#@in id
+#@out id_1
+#@end core/text-transform1
+#@begin core/text-transform2 #@desc Text transform on cells in column name using expression value.toString()
+#@param expression:value.toString()
+#@in name
+#@out name_1
+#@end core/text-transform2
+#@begin core/text-transform3 #@desc Text transform on cells in column menus_appeared using expression value.toNumber()
+#@param expression:value.toNumber()
+#@in menus_appeared
+#@out menus_appeared_1
+#@end core/text-transform3
+#@begin core/text-transform4 #@desc Text transform on cells in column times_appeared using expression value.toNumber()
+#@param expression:value.toNumber()
+#@in times_appeared
+#@out times_appeared_1
+#@end core/text-transform4
+#@begin core/text-transform5 #@desc Text transform on cells in column first_appeared using expression value.toNumber()
+#@param expression:value.toNumber()
+#@in first_appeared
+#@out first_appeared_1
+#@end core/text-transform5
+#@begin core/text-transform6 #@desc Text transform on cells in column last_appeared using expression value.toNumber()
+#@param expression:value.toNumber()
+#@in last_appeared
+#@out last_appeared_1
+#@end core/text-transform6
+#@begin core/text-transform7 #@desc Text transform on cells in column lowest_price using expression value.toNumber()
+#@param expression:value.toNumber()
+#@in lowest_price
+#@out lowest_price_1
+#@end core/text-transform7
+#@begin core/text-transform8 #@desc Text transform on cells in column highest_price using expression value.toNumber()
+#@param expression:value.toNumber()
+#@in highest_price
+#@out highest_price_1
+#@end core/text-transform8
+#@begin core/row-removal9 #@desc Remove rows
+#@param mode:row-based
+#@in lowest_price_1
+#@out lowest_price_2
+#@end core/row-removal9
+#@begin core/row-removal10 #@desc Remove rows
+#@param mode:row-based
+#@in lowest_price_2
+#@out lowest_price_3
+#@end core/row-removal10
+#@begin core/row-removal11 #@desc Remove rows
+#@param mode:row-based
+#@in lowest_price_3
+#@out lowest_price_4
+#@end core/row-removal11
+#@begin core/row-removal12 #@desc Remove rows
+#@param mode:row-based
+#@in first_appeared_1
+#@out first_appeared_2
+#@end core/row-removal12
+#@begin core/row-removal13 #@desc Remove rows
+#@param mode:row-based
+#@in last_appeared_1
+#@out last_appeared_2
+#@end core/row-removal13
+#@begin core/row-removal14 #@desc Remove rows
+#@param mode:row-based
+#@in menus_appeared_1
+#@out menus_appeared_2
+#@end core/row-removal14
+#@begin core/row-removal15 #@desc Remove rows
+#@param mode:row-based
+#@in times_appeared_1
+#@out times_appeared_2
+#@end core/row-removal15
+#@begin core/row-removal16 #@desc Remove rows
+#@param mode:row-based
+#@in name_1
+#@out name_2
+#@end core/row-removal16
+#@begin core/row-removal17 #@desc Remove rows
+#@param mode:row-based
+#@in first_appeared_2
+#@out first_appeared_3
+#@end core/row-removal17
+#@begin core/row-removal18 #@desc Remove rows
+#@param mode:row-based
+#@in highest_price_1
+#@out highest_price_2
+#@end core/row-removal18
+#@begin core/text-transform19 #@desc Text transform on cells in column id using expression value.trim()
+#@param expression:value.trim()
+#@in id_1
+#@out id_2
+#@end core/text-transform19
+#@begin core/text-transform20 #@desc Text transform on cells in column name using expression value.trim()
+#@param expression:value.trim()
+#@in name_2
+#@out name_3
+#@end core/text-transform20
+#@begin core/text-transform21 #@desc Text transform on cells in column name using expression value.replace(/[\\p{Zs}\\s]+/,' ')
+#@param expression:value.replace(/[\\p{Zs}\\s]+/,'_')
+#@in name_3
+#@out name_4
+#@end core/text-transform21
+#@begin core/text-transform22 #@desc Text transform on cells in column name using expression grel:value.replace(/^[^A-Za-z0-9_\\s]|[^A-Za-z0-9_\\s]$/,'')
+#@param expression:grel:value.replace(/^[^A-Za-z0-9_\\s]|[^A-Za-z0-9_\\s]$/,'')
+#@in name_4
+#@out name_5
+#@end core/text-transform22
+#@begin core/text-transform23 #@desc Text transform on cells in column name using expression grel:value.replace(/([^A-Za-z0-9_\\s])\\s\\1/,'')
+#@param expression:grel:value.replace(/([^A-Za-z0-9_\\s])\\s\\1/,'')
+#@in name_5
+#@out name_6
+#@end core/text-transform23
+#@begin core/text-transform24 #@desc Text transform on cells in column name using expression grel:value.replace(/^[*]/,'')
+#@param expression:grel:value.replace(/^[*]/,'')
+#@in name_6
+#@out name_7
+#@end core/text-transform24
+#@begin core/text-transform25 #@desc Text transform on cells in column name using expression grel:value.replace(/([^A-Za-z0-9_\\s])\\1([^A-Za-z0-9_\\s])*$/,'')
+#@param expression:grel:value.replace(/([^A-Za-z0-9_\\s])\\1([^A-Za-z0-9_\\s])*$/,'')
+#@in name_7
+#@out name_8
+#@end core/text-transform25
+#@begin core/row-removal26 #@desc Remove rows
+#@param mode:row-based
+#@in name_8
+#@out name_9
+#@end core/row-removal26
+#@begin core/row-removal27 #@desc Remove rows
+#@param mode:row-based
+#@in name_9
+#@out name_10
+#@end core/row-removal27
+#@begin core/row-removal28 #@desc Remove rows
+#@param mode:row-based
+#@in name_10
+#@out name_11
+#@end core/row-removal28
+#@begin core/row-removal29 #@desc Remove rows
+#@param mode:row-based
+#@in name_11
+#@out name_12
+#@end core/row-removal29
+#@begin core/row-removal30 #@desc Remove rows
+#@param mode:row-based
+#@in name_12
+#@out name_13
+#@end core/row-removal30
+#@begin core/text-transform31 #@desc Text transform on cells in column name using expression grel:value.replace(/\\\"/,'')
+#@param expression:grel:value.replace(/\\"/,'')
+#@in name_13
+#@out name_14
+#@end core/text-transform31
+#@begin core/row-removal32 #@desc Remove rows
+#@param mode:row-based
+#@in name_14
+#@out name_15
+#@end core/row-removal32
+#@begin core/text-transform33 #@desc Text transform on cells in column name using expression value.trim()
+#@param expression:value.trim()
+#@in name_15
+#@out name_16
+#@end core/text-transform33
+#@begin core/text-transform34 #@desc Text transform on cells in column name using expression value.replace(/[\\p{Zs}\\s]+/,' ')
+#@param expression:value.replace(/[\\p{Zs}\\s]+/,'_')
+#@in name_16
+#@out name_17
+#@end core/text-transform34
+#@begin core/text-transform35 #@desc Text transform on cells in column name using expression grel:value.replace(/\\(\\d{1,3}\\)$/,'')
+#@param expression:grel:value.replace(/\\(\\d{1,3}\\)$/,'')
+#@in name_17
+#@out name_18
+#@end core/text-transform35
+#@begin core/text-transform36 #@desc Text transform on cells in column name using expression grel:value.replace(/^\\(\\d{1,3}\\)/,'')
+#@param expression:grel:value.replace(/^\\(\\d{1,3}\\)/,'')
+#@in name_18
+#@out name_19
+#@end core/text-transform36
+#@begin core/text-transform37 #@desc Text transform on cells in column name using expression grel:value.replace(/\\[\\d{1,3}\\]$/,'')
+#@param expression:grel:value.replace(/\\[\\d{1,3}\\]$/,'')
+#@in name_19
+#@out name_20
+#@end core/text-transform37
+#@begin core/text-transform38 #@desc Text transform on cells in column name using expression grel:value.replace(/^\\[\\d{1,3}\\]/,'')
+#@param expression:grel:value.replace(/^\\[\\d{1,3}\\]/,'')
+#@in name_20
+#@out name_21
+#@end core/text-transform38
+#@begin core/text-transform39 #@desc Text transform on cells in column name using expression grel:value.replace(/\\(\\w{1}\\)$/,'')
+#@param expression:grel:value.replace(/\\(\\w{1}\\)$/,'')
+#@in name_21
+#@out name_22
+#@end core/text-transform39
+#@begin core/mass-edit40 #@desc Mass edit cells in column name
+#@param expression:value
+#@in name_22
+#@out name_23
+#@end core/mass-edit40
+#@begin core/text-transform41 #@desc Text transform on cells in column name using expression grel:value.replace(/^\\(\\w{1}\\)/,'')
+#@param expression:grel:value.replace(/^\\(\\w{1}\\)/,'')
+#@in name_23
+#@out name_24
+#@end core/text-transform41
+#@begin core/text-transform42 #@desc Text transform on cells in column name using expression grel:value.replace(/\\[C\\]/,'C')
+#@param expression:grel:value.replace(/\\[C\\]/,'C')
+#@in name_24
+#@out name_25
+#@end core/text-transform42
+#@begin core/text-transform43 #@desc Text transform on cells in column name using expression grel:value.replace(/^\\-/,'')
+#@param expression:grel:value.replace(/^\\-/,'')
+#@in name_25
+#@out name_26
+#@end core/text-transform43
+#@begin core/text-transform44 #@desc Text transform on cells in column name using expression grel:value.replace(/^\\#\\d+/,'')
+#@param expression:grel:value.replace(/^\\#\\d+/,'')
+#@in name_26
+#@out name_27
+#@end core/text-transform44
+#@begin core/text-transform45 #@desc Text transform on cells in column name using expression value.trim()
+#@param expression:value.trim()
+#@in name_27
+#@out name_28
+#@end core/text-transform45
+#@begin core/text-transform46 #@desc Text transform on cells in column name using expression value.replace(/[\\p{Zs}\\s]+/,' ')
+#@param expression:value.replace(/[\\p{Zs}\\s]+/,'_')
+#@in name_28
+#@out name_29
+#@end core/text-transform46
+#@begin core/text-transform47 #@desc Text transform on cells in column name using expression grel:value.replace(/^\\-/,'')
+#@param expression:grel:value.replace(/^\\-/,'')
+#@in name_29
+#@out name_30
+#@end core/text-transform47
+#@begin core/text-transform48 #@desc Text transform on cells in column name using expression value.trim()
+#@param expression:value.trim()
+#@in name_30
+#@out name_31
+#@end core/text-transform48
+#@begin core/text-transform49 #@desc Text transform on cells in column name using expression value.replace(/[\\p{Zs}\\s]+/,' ')
+#@param expression:value.replace(/[\\p{Zs}\\s]+/,'_')
+#@in name_31
+#@out name_32
+#@end core/text-transform49
+#@begin core/text-transform50 #@desc Text transform on cells in column name using expression grel:value.replace(/^\\*/,'')
+#@param expression:grel:value.replace(/^\\*/,'')
+#@in name_32
+#@out name_33
+#@end core/text-transform50
+#@begin core/text-transform51 #@desc Text transform on cells in column name using expression grel:value.replace(/^\\./,'')
+#@param expression:grel:value.replace(/^\\./,'')
+#@in name_33
+#@out name_34
+#@end core/text-transform51
+#@begin core/row-removal52 #@desc Remove rows
+#@param mode:row-based
+#@in name_34
+#@out name_35
+#@end core/row-removal52
+#@begin core/text-transform53 #@desc Text transform on cells in column name using expression value.trim()
+#@param expression:value.trim()
+#@in name_35
+#@out name_36
+#@end core/text-transform53
+#@begin core/text-transform54 #@desc Text transform on cells in column name using expression value.replace(/[\\p{Zs}\\s]+/,' ')
+#@param expression:value.replace(/[\\p{Zs}\\s]+/,'_')
+#@in name_36
+#@out name_37
+#@end core/text-transform54
+#@begin core/row-removal55 #@desc Remove rows
+#@param mode:row-based
+#@in name_37
+#@out name_38
+#@end core/row-removal55
+#@begin core/text-transform56 #@desc Text transform on cells in column name using expression value.trim()
+#@param expression:value.trim()
+#@in name_38
+#@out name_39
+#@end core/text-transform56
+#@begin core/text-transform57 #@desc Text transform on cells in column name using expression value.replace(/[\\p{Zs}\\s]+/,' ')
+#@param expression:value.replace(/[\\p{Zs}\\s]+/,'_')
+#@in name_39
+#@out name_40
+#@end core/text-transform57
+#@begin core/mass-edit58 #@desc Mass edit cells in column name
+#@param expression:value
+#@in name_40
+#@out name_41
+#@end core/mass-edit58
+#@begin core/mass-edit59 #@desc Mass edit cells in column name
+#@param expression:value
+#@in name_41
+#@out name_42
+#@end core/mass-edit59
+#@begin core/mass-edit60 #@desc Mass edit cells in column name
+#@param expression:value
+#@in name_42
+#@out name_43
+#@end core/mass-edit60
+#@begin core/mass-edit61 #@desc Mass edit cells in column name
+#@param expression:value
+#@in name_43
+#@out name_44
+#@end core/mass-edit61
+#@begin core/mass-edit62 #@desc Mass edit cells in column name
+#@param expression:value
+#@in name_44
+#@out name_45
+#@end core/mass-edit62
+#@begin core/mass-edit63 #@desc Mass edit cells in column name
+#@param expression:value
+#@in name_45
+#@out name_46
+#@end core/mass-edit63
+#@begin core/mass-edit64 #@desc Mass edit cells in column name
+#@param expression:value
+#@in name_46
+#@out name_47
+#@end core/mass-edit64
+#@begin core/mass-edit65 #@desc Mass edit cells in column name
+#@param expression:value
+#@in name_47
+#@out name_48
+#@end core/mass-edit65
+#@begin core/mass-edit66 #@desc Mass edit cells in column name
+#@param expression:value
+#@in name_48
+#@out name_49
+#@end core/mass-edit66
+#@begin core/mass-edit67 #@desc Mass edit cells in column name
+#@param expression:value
+#@in name_49
+#@out name_50
+#@end core/mass-edit67
+#@begin core/text-transform68 #@desc Text transform on cells in column name using expression value.trim()
+#@param expression:value.trim()
+#@in name_50
+#@out name_51
+#@end core/text-transform68
+#@begin core/text-transform69 #@desc Text transform on cells in column name using expression value.replace(/[\\p{Zs}\\s]+/,' ')
+#@param expression:value.replace(/[\\p{Zs}\\s]+/,'_')
+#@in name_51
+#@out name_52
+#@end core/text-transform69
+#@begin CombineDataCleaningChanges
+#@in description
+#@in remove-description
+#@in id_2
+#@in name_52
+#@in menus_appeared_2
+#@in times_appeared_2
+#@in first_appeared_3
+#@in last_appeared_2
+#@in lowest_price_4
+#@in highest_price_2
+#@out CleanData
+#@end CombineDataCleaningChanges
+#@end Parallel_OR
